@@ -1,3 +1,5 @@
 # law_school_outcomes_website
 
-Website that shows outcomes for different law schools
+Website that shows outcomes for different law schools. 
+
+Built using Jekyll
