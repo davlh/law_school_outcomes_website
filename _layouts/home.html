@@ -1,0 +1,22 @@
+---
+layout: default
+---
+{{ content }}
+
+
+<h2> Pick a  Law school </h2>
+
+<div class="dropdown">
+  <button class="dropbtn"> choose </button>
+  <div class="dropdown-content">
+    <a href="#">Link 1</a>
+    <a href="#">Link 2</a>
+    <a href="#">Link 3</a>
+  </div>
+</div>
+
+
+{% assign row = site.data.school_outcomes[0] %}
+{% for pair in row %}
+  {{ pair | inspect }}
+{% endfor %}
