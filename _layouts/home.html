@@ -6,17 +6,19 @@ layout: default
 
 <h2> Pick a  Law school </h2>
 
+
 <div class="dropdown">
-  <button class="dropbtn"> choose </button>
+  <button class="dropbtn"> Choose </button>
   <div class="dropdown-content">
-    <a href="#">Link 1</a>
-    <a href="#">Link 2</a>
-    <a href="#">Link 3</a>
+    {%- for my_page in site.pages -%}
+      {%- if my_page.dir == "/school_profiles/" %}
+        <a class="page-link" href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}</a>
+      {%- endif -%}
+   {%- endfor -%}
   </div>
 </div>
 
 
-{% assign row = site.data.school_outcomes[0] %}
-{% for pair in row %}
-  {{ pair | inspect }}
-{% endfor %}
+
+
+

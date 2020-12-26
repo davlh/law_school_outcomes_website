@@ -1,3 +1,59 @@
-<h1>{{page.name}}</h1>
+---
+layout: default
+---
+<h1>{{page.SchoolName}}</h1>
+{% assign total_grads = page.Total_GraduatesNumber | plus: 0 %}
+{% assign employed_bar_passage = page.Employed_BarPassageRequiredFTLT | plus: 0 %}
+{% assign jd_advantage_num = page.Employed_JDAdvantageNumber | plus: 0 %}
+{% assign unemployed_seeking_num = page.UnEmployedSeekingNumber | plus: 0 %}
+{% assign other = total_grads | minus: employed_bar_passage | minus: jd_advantage_num | minus: unemployed_seeking_num %}
 
-{{page.bio}}
+
+
+
+
+<!-- Tab links -->
+<div class="tab">
+    <button class="tablinks" onclick="openCity(event, 'General')">General</button>
+    <button class="tablinks" onclick="openCity(event, 'Private')">Private Sector</button>
+    <button class="tablinks" onclick="openCity(event, 'Public')">Public Sector</button>
+  </div>
+  
+  <!-- Tab content -->
+  <div id="General" class="tabcontent">
+    <h3>General</h3>
+    Total Graduates Number: {{total_grads}} <br>
+    Employed - Bar Passage Required: {{employed_bar_passage}} <br>
+    Employed - JD Advantage Number: {{jd_advantage_num}} <br>
+    Unemployed Seeking: {{unemployed_seeking_num}} <br>
+    Other: {{other}} <br>
+  </div>
+  
+  <div id="Private" class="tabcontent">
+    <h3>Private</h3>
+    <p>Paris is the capital of France.</p>
+  </div>
+  
+  <div id="Public" class="tabcontent">
+    <h3>Public</h3>
+    <p>Tokyo is the capital of Japan.</p>
+  </div>
+
+
+  <script>
+    function openCity(evt, cityName) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+      document.getElementById(cityName).style.display = "block";
+      evt.currentTarget.className += " active";
+    }
+</script>
+
+

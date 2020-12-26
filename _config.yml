@@ -27,10 +27,13 @@ url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: jekyllrb
 github_username:  jekyll
 page_gen:
-  data: school_outcomes
-  template: school
-  name: 'SchoolName'
-  dir: 'law_schools'
+  - data: school_profiles
+    template: school_profile
+    name: SchoolName
+    dir: "school_profiles"
+collections:
+  school_profiles:
+    output: true
 
 # Build settings
 theme: minima
