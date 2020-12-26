@@ -7,53 +7,116 @@ layout: default
 {% assign jd_advantage_num = page.Employed_JDAdvantageNumber | plus: 0 %}
 {% assign unemployed_seeking_num = page.UnEmployedSeekingNumber | plus: 0 %}
 {% assign other = total_grads | minus: employed_bar_passage | minus: jd_advantage_num | minus: unemployed_seeking_num %}
-
-
+{% assign num_1_to_10 = page.1-10 | plus: 0 %}
+{% assign num_11_to_25 = page.11-25 | plus: 0 %}
+{% assign num_26_to_50 = page.26-50 | plus: 0 %}
+{% assign num_51_to_100 = page.51-100 | plus: 0 %}
+{% assign num_101_to_250 = page.101-250 | plus: 0 %}
+{% assign num_251_to_500 = page.251-500 | plus: 0 %}
+{% assign num_501_plus = page.501-PLUS | plus: 0 %}
 
 
 
 <!-- Tab links -->
 <div class="tab">
-    <button class="tablinks" onclick="openCity(event, 'General')">General</button>
-    <button class="tablinks" onclick="openCity(event, 'Private')">Private Sector</button>
-    <button class="tablinks" onclick="openCity(event, 'Public')">Public Sector</button>
-  </div>
-  
-  <!-- Tab content -->
-  <div id="General" class="tabcontent">
+    <button class="tablinks active" onclick="openTab(event, 'General')">General</button>
+    <button class="tablinks" onclick="openTab(event, 'Private')">Private Sector</button>
+    <button class="tablinks" onclick="openTab(event, 'Public')">Public Sector</button>
+</div>
+
+<!-- Tab content -->
+<div id="General" class="tabcontent">
     <h3>General</h3>
-    Total Graduates Number: {{total_grads}} <br>
-    Employed - Bar Passage Required: {{employed_bar_passage}} <br>
-    Employed - JD Advantage Number: {{jd_advantage_num}} <br>
-    Unemployed Seeking: {{unemployed_seeking_num}} <br>
-    Other: {{other}} <br>
-  </div>
-  
-  <div id="Private" class="tabcontent">
-    <h3>Private</h3>
-    <p>Paris is the capital of France.</p>
-  </div>
-  
-  <div id="Public" class="tabcontent">
+    <table>
+        <thead>
+            <tr>
+                <th>Empoyment status</th>
+                <th>Number of graduates</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Employed - Bar Passage Required</td>
+                <td>{{employed_bar_passage}}</td>
+            </tr>
+            <tr>
+                <td>Employed - JD Advantage</td>
+                <td>{{jd_advantage_num}}</td>
+            </tr>
+            <tr>
+                <td>Unemployed Seeking</td>
+                <td>{{unemployed_seeking_num}}</td>
+            </tr>
+            <tr>
+                <td>Other</td>
+                <td>{{other}}</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <th>Total</th>
+                <th>{{total_grads}}</th>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+
+<div id="Private" class="tabcontent">
+    <h3>Private Sector</h3>
+    <table>
+        <tr>
+            <th>Law firm size (# attorneys) </th>
+            <th>Number of employed graduates</th>
+        </tr>
+        <tr>
+            <td>1-10</td>
+            <td>{{num_1_to_10}}</td>
+        </tr>
+        <tr>
+            <td>11-25</td>
+            <td>{{num_11_to_25}}</td>
+        </tr>
+        <tr>
+            <td>26-50</td>
+            <td>{{num_26_to_50}}</td>
+        </tr>
+        <tr>
+            <td>51-100</td>
+            <td>{{num_51_to_100}}</td>
+        </tr>
+        <tr>
+            <td>101-250</td>
+            <td>{{num_101_to_250}}</td>
+        </tr>
+        <tr>
+            <td>251-500</td>
+            <td>{{num_251_to_500}}</td>
+        </tr>
+        <tr>
+            <td>501+</td>
+            <td>{{num_501_plus}}</td>
+        </tr>
+    </table>
+</div>
+
+<div id="Public" class="tabcontent">
     <h3>Public</h3>
     <p>Tokyo is the capital of Japan.</p>
-  </div>
+</div>
 
 
-  <script>
-    function openCity(evt, cityName) {
-      var i, tabcontent, tablinks;
-      tabcontent = document.getElementsByClassName("tabcontent");
-      for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-      }
-      tablinks = document.getElementsByClassName("tablinks");
-      for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-      }
-      document.getElementById(cityName).style.display = "block";
-      evt.currentTarget.className += " active";
+<script>
+    function openTab(evt, tabName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(tabName).style.display = "block";
+        evt.currentTarget.className += " active";
     }
 </script>
-
-
