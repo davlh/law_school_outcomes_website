@@ -4,20 +4,22 @@ layout: default
 {{ content }}
 
 
-<h2> Pick a  Law school </h2>
+<h2> Welcome </h2>
 
-
-<div class="dropdown">
-  <button class="dropbtn"> Choose </button>
-  <div class="dropdown-content">
-    {%- for my_page in site.pages -%}
-      {%- if my_page.dir == "/school_profiles/" %}
-        <a class="page-link" href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}</a>
-      {%- endif -%}
-   {%- endfor -%}
-  </div>
+<div id="search-container">
+  <input type="search" id="search-input" placeholder="Search for a Law School...">
+  <ul id="results-container"></ul>
 </div>
 
+<script src="./js/simple-jekyll-search.min.js"></script>
+
+<script>
+  window.simpleJekyllSearch = new SimpleJekyllSearch({
+    searchInput: document.getElementById('search-input'),
+    resultsContainer: document.getElementById('results-container'),
+    json: '/search.json',
+  })
+</script>
 
 
 

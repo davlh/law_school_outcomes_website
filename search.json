@@ -1,0 +1,16 @@
+---
+layout: none
+---
+{% assign school_profile_pages =  site.pages | where: "dir", "/school_profiles/" %}
+
+[
+    {%- for my_page in school_profile_pages -%}
+        {
+            "title"    : "{{ my_page.title | escape }}",
+            "url"      : "{{ my_page.url }}",
+            "tags"     : "{{ my_page.tags | join: ', ' }}",
+            "date"     : "{{ post.date }}"
+          } {% unless forloop.last %},{% endunless %}
+    {%- endfor -%}
+
+]
