@@ -7,6 +7,7 @@ layout: default
 {% assign jd_advantage_num = page.Employed_JDAdvantageNumber | plus: 0 %}
 {% assign unemployed_seeking_num = page.UnEmployedSeekingNumber | plus: 0 %}
 {% assign other = total_grads | minus: employed_bar_passage | minus: jd_advantage_num | minus: unemployed_seeking_num %}
+<!-- Private sector tab nums -->
 {% assign num_1_to_10 = page.1-10 | plus: 0 %}
 {% assign num_11_to_25 = page.11-25 | plus: 0 %}
 {% assign num_26_to_50 = page.26-50 | plus: 0 %}
@@ -14,6 +15,15 @@ layout: default
 {% assign num_101_to_250 = page.101-250 | plus: 0 %}
 {% assign num_251_to_500 = page.251-500 | plus: 0 %}
 {% assign num_501_plus = page.501-PLUS | plus: 0 %}
+<!-- Public sector tab nums -->
+{% assign num_business_industry = page.BusinessIndustry | plus: 0 %}
+{% assign num_government = page.Government| plus: 0 %}
+{% assign num_public_interest = page.PublicInterest | plus: 0 %}
+{% assign num_clerkships_federal = page.Clerkships_Federal | plus: 0 %}
+{% assign num_clerkships_state_local = page.Clerkships_StateLocal| plus: 0 %}
+{% assign num_clerkships_other = page.Clerkships_Other | plus: 0 %}
+{% assign num_education = page.Education | plus: 0 %}
+{% assign num_employer_type_unkown = page.EmployerTypeUnknown | plus: 0 %}
 
 
 
@@ -100,8 +110,45 @@ layout: default
 </div>
 
 <div id="Public" class="tabcontent">
-    <h3>Public</h3>
-    <p>Tokyo is the capital of Japan.</p>
+    <h3>Public Sector</h3>
+    <table>
+        <tr>
+            <th>Employment Type</th>
+            <th>Number of employed graduates</th>
+        </tr>
+        <tr>
+            <td>Business & Industry</td>
+            <td>{{num_business_industry}}</td>
+        </tr>
+        <tr>
+            <td>Government</td>
+            <td>{{num_government}}</td>
+        </tr>
+        <tr>
+            <td>Public Interest</td>
+            <td>{{num_public_interest}}</td>
+        </tr>
+        <tr>
+            <td>Clerkships - Federal</td>
+            <td>{{num_clerkships_federal}}</td>
+        </tr>
+        <tr>
+            <td>Clerkships - State & Local</td>
+            <td>{{num_clerkships_state_local}}</td>
+        </tr>
+        <tr>
+            <td>Clerkships - Other</td>
+            <td>{{num_clerkships_other}}</td>
+        </tr>
+        <tr>
+            <td>Education</td>
+            <td>{{num_education}}</td>
+        </tr>
+        <tr>
+            <td>Unknown</td>
+            <td>{{num_employer_type_unkown}}</td>
+        </tr>
+    </table>
 </div>
 
 
