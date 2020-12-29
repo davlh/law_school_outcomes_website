@@ -6,21 +6,9 @@ layout: default
 
 <h2> Welcome </h2>
 
-<div id="search-container">
-  <input type="search" id="search-input" placeholder="Search for a Law School...">
-  <ul id="results-container"></ul>
+<div class="outer-search-container">
+  {%- include search_bar.html -%}
 </div>
-
-<script src="./js/simple-jekyll-search.min.js"></script>
-
-<script>
-  window.simpleJekyllSearch = new SimpleJekyllSearch({
-    searchInput: document.getElementById('search-input'),
-    resultsContainer: document.getElementById('results-container'),
-    json: '/search.json',
-  })
-</script>
-
 
 
 

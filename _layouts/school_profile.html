@@ -1,7 +1,7 @@
 ---
 layout: default
 ---
-<h1>{{page.SchoolName}}</h1>
+
 {% assign total_grads = page.Total_GraduatesNumber | plus: 0 %}
 {% assign employed_bar_passage = page.Employed_BarPassageRequiredFTLT | plus: 0 %}
 {% assign jd_advantage_num = page.Employed_JDAdvantageNumber | plus: 0 %}
@@ -25,7 +25,13 @@ layout: default
 {% assign num_education = page.Education | plus: 0 %}
 {% assign num_employer_type_unkown = page.EmployerTypeUnknown | plus: 0 %}
 
-
+<div class="flex-container">
+    <!-- Search Bar -->
+    <h1>{{page.SchoolName}}</h1>
+    <div class="outer-search-container">
+        {%- include search_bar.html -%}
+    </div>
+</div>
 
 <!-- Tab links -->
 <div class="tab">
