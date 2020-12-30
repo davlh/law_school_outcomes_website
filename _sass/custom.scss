@@ -102,3 +102,40 @@
     justify-content: space-between;
     align-items: center;
   }
+
+.flex-row-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.svg-and-text-container {
+    display: flex;
+    background: beige;
+    justify-content: space-around;
+    margin: 1rem;
+}
+
+.state-info-container {  
+    margin-top: 1rem;
+}
+
+@media (min-width: $on-laptop) {
+    .state-info-container {
+        flex-basis: 48%;
+    }
+    .tab-container {
+        flex-basis: 48%;
+    }         
+}
+
+.center-header {
+    display: flex;
+    justify-content: center;
+}
+
+.svg-and-text-container svg {
+    max-width: 8em;
+}
